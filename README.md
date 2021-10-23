@@ -11,11 +11,6 @@ This is a Recipes Calculator app have this items:
 - State allows for interactive widgets.
 - When state changes, you usually need to hot restart the app instead of hot reload. In some case, you may also need to rebuild and restart the app entirely.
 
-https://github.com/memof90/RecipesCalculator-Flutter/blob/master/ScreenProject/Simulator%20Screen%20Recording%20-%20iPhone%2013%20Pro%20-%202021-10-23%20at%2018.34.19.gif?raw=true
-
-https://github.com/memof90/RecipesCalculator-Flutter/blob/master/ScreenProject/Captura%20de%20Pantalla%202021-10-23%20a%20la(s)%206.33.41%20p.%C2%A0m..png?raw=true
-
-https://github.com/memof90/RecipesCalculator-Flutter/blob/master/ScreenProject/Captura%20de%20Pantalla%202021-10-23%20a%20la(s)%206.33.30%20p.%C2%A0m..png?raw=true
 
 <table>
   <tr>
