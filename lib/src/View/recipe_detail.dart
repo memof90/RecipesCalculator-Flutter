@@ -16,6 +16,9 @@ import '../Model/recipes.dart';
  }
 
  class _RecipeDetailState extends State<RecipeDetail> {
+   // TODO: Variable to managed Slider
+   int _sliderVal = 1;
+
   @override
    Widget build(BuildContext context) {
     return Scaffold(
@@ -46,9 +49,24 @@ import '../Model/recipes.dart';
                 itemBuilder: (BuildContext context, int index) {
                   final ingredient = widget.recipe.ingredients[index];
                   // TODO: Add ingredient.quantity
-                  return Text('${ingredient.quantity} ${ingredient.measure} ${ingredient.name}');
+                  return Text('${ingredient.quantity * _sliderVal}' ' ${ingredient.measure}' '${ingredient.name}');
                 },
             ),
+            ),
+            // TODO: Add Slider()
+            Slider(
+                min: 1,
+                max: 10,
+                divisions: 10,
+                label: '${_sliderVal * widget.recipe.servings} servings',
+                value: _sliderVal.toDouble(),
+                onChanged: (newValue) {
+                  setState(() {
+                    _sliderVal = newValue.round();
+                  });
+                },
+              activeColor: Colors.green,
+              inactiveColor: Colors.black,
             ),
           ],
         ),
