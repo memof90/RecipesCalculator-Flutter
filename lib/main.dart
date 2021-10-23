@@ -16,12 +16,13 @@ class MyApp extends StatelessWidget {
     final ThemeData theme = ThemeData();
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Recipe Calculator',
       theme: theme.copyWith(
         colorScheme: theme.colorScheme.copyWith(
           primary: Colors.grey,
           secondary: Colors.black
-        )
+        ),
       ),
       home: const MyHomePage(title: 'Recipe calculator'),
     );
@@ -81,12 +82,21 @@ class _MyHomePageState extends State<MyHomePage> {
             itemCount: Recipe.samples.length,
             itemBuilder: (BuildContext context, int index) {
               // TODO: Update to return Recipe Card
-              return Text(Recipe.samples[index].label);
+              return buildRecipeCard(Recipe.samples[index]);
     },
         )
       ),
     );
   }
   // TODO: add buildRecipeCard()
+  Widget buildRecipeCard(Recipe recipe) {
+    return Column(
+      children: <Widget> [
+        Image(image: AssetImage(recipe.imageUrl)),
+        Text(recipe.label),
+      ],
+    );
+  }
+
 
 }
