@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './src/Model/recipes.dart';
+import './src/View/recipe_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,7 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
+
+   return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -78,15 +80,29 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: ListView.builder(
+          child: ListView.builder(
             itemCount: Recipe.samples.length,
             itemBuilder: (BuildContext context, int index) {
               // TODO: Update to return Recipe Card
-              return buildRecipeCard(Recipe.samples[index]);
-    },
-        )
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        // TODO: Replace return RecipeDetail()
+                        return RecipeDetail(recipe: Recipe.samples[index]);
+                      },
+                    ),
+                  );
+                },
+                child: buildRecipeCard(Recipe.samples[index]),
+              );
+            },
+          )
       ),
     );
+
   }
   // TODO: add buildRecipeCard()
   Widget buildRecipeCard(Recipe recipe) {
